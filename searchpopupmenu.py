@@ -3,7 +3,7 @@ from urllib import parse
 from kivy.network.urlrequest import UrlRequest
 from kivy.app import App
 import certifi
-from kivy.clock import Clock
+from kivy.clock import  Clock
 
 class SearchPopupMenu(MDInputDialog):
     title = 'Search by Adress'
@@ -13,9 +13,9 @@ class SearchPopupMenu(MDInputDialog):
         self.size_hint = [.9, .3]
         self.events_callback = self.callback
 
-    #def open(self):
-        #super().open()
-        #Clock.schedule_once(self.set_field_focus, 0.5)
+#    def open(self):
+#        super.open()
+#        Clock.schedue_once(self.set_field_focus, 0.5)
 
     def callback(self, *args):
         address = self.text_field.text
@@ -27,7 +27,8 @@ class SearchPopupMenu(MDInputDialog):
             api_key = f.read()
         address = parse.quote(address)
         url = "https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=%s&gen=9&apiKey=%s"%(address, api_key)
-        UrlRequest(url, on_success=self.success, on_failure=self.failure, on_error=self.error, ca_file=certifi.where)
+        UrlRequest(url, on_success=self.success, on_failure=self.failure, on_error=self.error)
+#        UrlRequest(url, on_success=self.success, on_failure=self.failure, on_error=self.error, ca_file=certifi.where)
 
     def success(self, urlrequest, result):
         print("success")

@@ -1,7 +1,9 @@
-from kivy.garden.mapview import MapMarkerPopup
 from locationpopupmenu import LocationPopupMenu
+from kivy.garden.mapview import MapMarkerPopup
+#from kivy_garden.mapview import MapMarkerPopup
 
-class MarketMarker(MapMarkerPopup):
+
+class RestaurantMarker(MapMarkerPopup):
     source = "marker.png"
     market_data = []
 

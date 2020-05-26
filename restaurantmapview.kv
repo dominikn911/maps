@@ -1,0 +1,12 @@
+#:import MapView kivy.garden.mapview
+
+<RestaurantMapView>:
+    lat: 50.05
+    lon: 19.05
+    zoom: 10
+    on_zoom:
+        self.zoom = 10 if self.zoom < 10 else self.zoom
+    on_lat:
+        self.start_getting_restaurant_in_fov()
+    on_lon:
+        self.start_getting_restaurant_in_fov()
