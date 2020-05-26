@@ -12,7 +12,7 @@ class SearchPopupMenu(MDInputDialog):
         super().__init__()
         self.size_hint = [.9, .3]
         self.events_callback = self.callback
-SPRAWDZAM CZY WIDZISZ ZMIANY
+
     #def open(self):
         #super().open()
         #Clock.schedule_once(self.set_field_focus, 0.5)
