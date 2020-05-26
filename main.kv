@@ -1,0 +1,10 @@
+#:include marketsmapview.kv
+
+BoxLayout:
+    orientation: 'vertical'
+    MDToolbar:
+        title: "Find your restaurant"
+        right_action_items: [['magnify', lambda x: app.search_menu.open()]]
+        md_bg_color: app.theme_cls.primary_color
+    MarketsMapView:
+        id: mapview
