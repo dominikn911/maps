@@ -371,10 +371,10 @@ class BaseDialog(ThemableBehavior, ModalView):
             )
 
 class ListMDDialog(BaseDialog):
-    name = StringProperty("-")
-    address = StringProperty("-")
-    Website = StringProperty("-")
-    Season1_date = StringProperty("-")
+    name = StringProperty("Missing data")
+    address = StringProperty("Missing data")
+    Website = StringProperty("Missing data")
+    Season1_date = StringProperty("Missing data")
     background = StringProperty('{}ios_bg_mod.png'.format(images_path))
 
 
