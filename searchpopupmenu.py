@@ -4,6 +4,7 @@ from kivy.network.urlrequest import UrlRequest
 from kivy.app import App
 import certifi
 from kivy.clock import  Clock
+from restaurantmapview import RestaurantMapView
 
 class SearchPopupMenu(MDInputDialog):
     title = 'Search by Adress'
@@ -19,6 +20,7 @@ class SearchPopupMenu(MDInputDialog):
 
     def callback(self, *args):
         address = self.text_field.text
+        RestaurantMapView.city = address
         self.geocode_get_lat_lon(address)
         print(address)
 

@@ -3,7 +3,6 @@ from restaurantmapview import RestaurantMarker
 import sqlite3
 from searchpopupmenu import SearchPopupMenu
 
-
 class MainApp(MDApp):
     connection = None
     cursor = None
