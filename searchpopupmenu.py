@@ -9,6 +9,8 @@ from restaurantmapview import RestaurantMapView
 class SearchPopupMenu(MDInputDialog):
     title = 'Search by Adress'
     text_button_ok = 'Search'
+    pub_names = ["pub", "pubs", "puby"]
+    restaurant_names = ["restauracja", "restauracje", "restaurant", "restaurants"]
     def __init__(self):
         super().__init__()
         self.size_hint = [.9, .3]
@@ -20,9 +22,18 @@ class SearchPopupMenu(MDInputDialog):
 
     def callback(self, *args):
         address = self.text_field.text
-        RestaurantMapView.city = address
-        self.geocode_get_lat_lon(address)
-        print(address)
+        result = [x.strip() for x in address.split(',')]
+        objectType = 0
+        if result[0].lower() in self.restaurant_names or result[0].lower() in self.pub_names:
+            objectType = 1 if result[0].lower() in self.restaurant_names else 2
+            city = result[1]
+            name = result[2] if len(result) > 2 else "none"
+        else:
+            city = result[0]
+            name = result[1] if len(result) > 1 else "none"
+        RestaurantMapView.set_address(city, name, objectType)
+
+        self.geocode_get_lat_lon(city)
 
     def geocode_get_lat_lon(self, address):
         with open('api_key.txt', 'r') as f:

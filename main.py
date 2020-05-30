@@ -5,7 +5,9 @@ from searchpopupmenu import SearchPopupMenu
 
 class MainApp(MDApp):
     connection = None
+    pubConnection = None
     cursor = None
+    pubCursor = None
     search_menu = None
 
     def on_start(self):
@@ -13,7 +15,9 @@ class MainApp(MDApp):
         # Initialize GPS
         # connect to database
         self.connection = sqlite3.connect("restaurant.db")
+        self.pubConnection = sqlite3.connect("pub.db")
         self.cursor = self.connection.cursor()
+        self.pubCursor = self.pubConnection.cursor()
         #initialize popupmenu
         self.search_menu = SearchPopupMenu()
     pass
